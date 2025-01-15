@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Star Wars Theory - Home</title>
+  <title>Star Wars Theory - Contact</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -21,14 +21,20 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <h2>Welcome to Star Wars Theory</h2>
-    <p>The ultimate fan hub for Star Wars lore, analysis, and entertainment.</p>
-  </section>
-
   <section class="content">
-    <h2>About Us</h2>
-    <p>We bring you theories, in-depth analysis, and engaging content about the Star Wars universe. Join our community of fans to explore the galaxy far, far away.</p>
+    <h2>Contact Us</h2>
+    <form action="mailto:jerryadam828@gmail.com" method="POST" enctype="text/plain">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+      
+      <button type="submit">Send</button>
+    </form>
   </section>
 
   <footer class="main-footer">
