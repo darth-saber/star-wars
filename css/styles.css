@@ -26,7 +26,7 @@
   }
   
   .main-header .logo h1 {
-    margin: 0;
+    margin: 0 1rem;
   }
   
   .main-nav ul {
@@ -312,4 +312,94 @@
 
 .store-button:hover {
   background-color: #f39c12;
+}
+
+/* Mobile (iPhones, width <= 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.9rem; /* Slightly smaller base font size */
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-nav ul li {
+    margin: 0.3rem 0; /* Adjust spacing for tighter screens */
+  }
+  .main-header .logo h1 {
+    font-size: 1.5rem; /* Reduce logo font size for iPhone */
+  }
+
+  .main-nav ul li a {
+    font-size: 1rem; /* Adjust font size for navbar links */
+  }
+
+  .hero {
+    height: auto; /* Adjust height for smaller screens */
+    padding: 1rem;
+  }
+
+  .hero p {
+    font-size: 1rem; /* Adjust text size */
+    max-width: 90%; /* Fit content within the viewport */
+  }
+
+  .video-grid, .channel-grid, .social-grid {
+    grid-template-columns: 1fr; /* Single-column layout */
+  }
+}
+
+/* Tablet (iPads, width <= 768px) */
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem; /* Adjust font size for medium screens */
+  }
+  .main-nav ul {
+    flex-direction: column; /* Stack links vertically */
+    align-items: center;
+    padding: 0; /* Remove extra padding */
+  }
+
+  .main-nav ul li {
+    margin: 0.5rem 0; /* Add spacing between stacked links */
+  }
+
+  .main-header {
+    padding: 0.5rem 0; /* Reduce padding for smaller screens */
+  }
+  .hero p {
+    font-size: 1.2rem; /* Slightly larger text */
+    max-width: 80%; /* Allow more width for content */
+  }
+
+  .video-grid, .channel-grid, .social-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two-column layout */
+  }
+}
+
+/* Desktop (width >= 1024px) */
+@media (min-width: 1024px) {
+  body {
+    font-size: 1.2rem; /* Larger font size for desktops */
+  }
+
+  .main-nav ul {
+    justify-content: center; /* Center navigation links */
+  }
+
+  .hero {
+    height: 100vh; /* Full viewport height */
+    padding: 2rem; /* Add extra padding for spacious layout */
+  }
+
+  .hero p {
+    font-size: 1.5rem; /* Larger text for readability */
+    max-width: 600px; /* Widen content */
+  }
+
+  .video-grid, .channel-grid, .social-grid {
+    grid-template-columns: repeat(3, 1fr); /* Three-column layout */
+  }
 }
