@@ -80,7 +80,29 @@
     text-align: center;
     color: #000000;
   }
-  
+  /* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh; /* Full viewport height */
+  background-color: #ffffff; /* Add a background color for contrast */
+  color: #000000; /* Text color */
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  max-width: 400px;
+  margin: 0 auto; /* Center the text within the container */
+}
+
   /* Video Page Specific */
   .video-grid {
     display: grid;
