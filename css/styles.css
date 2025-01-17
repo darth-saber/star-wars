@@ -12,11 +12,6 @@
     background-color: #ffffff;
     padding: 0;
     margin: 0;
-  background-image: url('images/star-wars-2897280_1280.jpg'); /* Adjust path if needed */
-  background-size: cover; /* Makes the background cover the entire area */
-  background-position: center; /* Centers the image */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-attachment: fixed; /* Keeps the image fixed during scrolling */
 }
   
   /* Header */
@@ -107,6 +102,15 @@
   max-width: 400px;
   margin: 0 auto; /* Center the text within the container */
 }
+.hero-image {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px; /* Optional: adds rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional: adds a shadow effect */
+}
+
 
   /* Video Page Specific */
   .video-grid {
