@@ -70,7 +70,7 @@
   .nav-links a:hover,
 .nav-links .current,
 .nav-links .active {
-  color: #db0404;
+  color: #ec0a0a;
 }
 
   .menu-toggle {
@@ -399,38 +399,33 @@
 
 /* Mobile (iPhones, width <= 480px) */
 @media (max-width: 480px) {
-  body {
-    font-size: 0.9rem; /* Slightly smaller base font size */
+  .hamburger {
+    display: flex;
   }
 
-  .main-nav ul {
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    background-color: #05103f;
     flex-direction: column;
-    align-items: center;
   }
 
-  .main-nav ul li {
-    margin: 0.3rem 0; /* Adjust spacing for tighter screens */
-  }
-  .main-header .logo h1 {
-    font-size: 1.5rem; /* Reduce logo font size for iPhone */
+  .nav-links {
+    flex-direction: column;
+    gap: 0;
   }
 
-  .main-nav ul li a {
-    font-size: 1rem; /* Adjust font size for navbar links */
+  .nav-links li {
+    border-bottom: 1px solid #333;
+    text-align: center;
+    padding: 10px 0;
   }
 
-  .hero {
-    height: auto; /* Adjust height for smaller screens */
-    padding: 1rem;
-  }
-
-  .hero p {
-    font-size: 1rem; /* Adjust text size */
-    max-width: 90%; /* Fit content within the viewport */
-  }
-
-  .video-grid, .channel-grid, .social-grid {
-    grid-template-columns: 1fr; /* Single-column layout */
+  .menu-toggle:checked + .hamburger + .main-nav {
+    display: flex;
   }
 }
 /* Responsive Styling */
@@ -445,7 +440,7 @@
     top: 60px;
     right: 0;
     width: 100%;
-    background-color: #111;
+    background-color: #05103f;
     flex-direction: column;
   }
 
