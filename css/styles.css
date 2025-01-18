@@ -26,12 +26,12 @@
   }
   
   .logo {
-    display: flex;
-    align-items: center;
+    font-size: 1.5rem;
   }
+
   
   .logo h1 {
-    margin-left: 10px;
+    margin-left: 25px;
     font-size: 1.5rem;
   }
   
@@ -68,8 +68,18 @@
   }
   
   .nav-links a:hover,
-  .nav-links .active {
-    color: #f39c12;
+.nav-links .current,
+.nav-links .active {
+  color: #db0404;
+}
+
+  .menu-toggle {
+    display: none;
+  }
+  
+  /* Show the menu when checkbox is checked */
+  .menu-toggle:checked + .hamburger + .main-nav {
+    display: flex;
   }
   
   /* Footer */
@@ -332,7 +342,7 @@
 }
 
 .store-button:hover {
-  background-color: #f39c12;
+  background-color: #5f07ac;
 }
 .quiz-category {
   margin-top: 30px;
