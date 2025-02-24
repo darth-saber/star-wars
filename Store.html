@@ -5,11 +5,136 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Star Wars Theory Store</title>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    .store-section {
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      position: relative;
+      transform: translateZ(0);
+      transition: transform 0.5s ease;
+      transform-origin: center center;
+      background: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(20,20,20,0.9));
+      border-radius: 20px;
+      padding: 30px;
+      margin: 20px 0;
+      box-shadow: 0 0 50px rgba(255,223,0,0.3);
+    }
+    .store-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 60%);
+      transform: translateZ(-100px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .store-section:hover::before {
+      opacity: 1;
+    }
+    .store-section:hover {
+      transform: translateZ(50px) rotateY(5deg);
+    }
+    .store-image {
+      transition: transform 0.5s ease, box-shadow 0.3s ease, filter 0.3s ease;
+      transform-style: preserve-3d;
+      max-width: 40%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      transform: rotateY(0deg) translateZ(0);
+      animation: spin 10s linear infinite;
+      filter: brightness(1) contrast(1);
+      transform-origin: center center;
+      border: 2px solid rgba(255,223,0,0.5);
+      border-radius: 15px;
+      padding: 10px;
+      background: rgba(0,0,0,0.7);
+    }
+    .store-image:hover {
+      filter: brightness(1.1) contrast(1.1);
+      animation-play-state: paused;
+    }
+    @keyframes spin {
+      0% { transform: rotateY(0deg) translateZ(0); }
+      50% { transform: rotateY(180deg) translateZ(50px); }
+      100% { transform: rotateY(360deg) translateZ(0); }
+    }
+
+    .store-image:hover {
+      transform: rotateY(15deg) scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+    .store-button {
+      transition: all 0.3s ease;
+      transform: translateZ(0);
+      margin-top: 20px;
+      display: block;
+      width: 200px;
+      margin: 20px auto 0;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(45deg, #ffdf00, #ff8800);
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 25px;
+      padding: 15px 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      box-shadow: 0 0 20px rgba(255,223,0,0.5);
+    }
+    .store-button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300%;
+      height: 300%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 60%);
+      transform: translate(-50%, -50%) translateZ(-50px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .store-button:hover::before {
+      opacity: 1;
+    }
+    .store-button:hover {
+      transform: rotateX(15deg) translateZ(20px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+    .store-button:hover {
+      transform: translateZ(20px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    @keyframes float {
+      0%, 100% { 
+        transform: translateY(0) translateZ(0) rotateX(0deg) rotateY(0deg); 
+      }
+      25% { 
+        transform: translateY(-10px) translateZ(20px) rotateX(2deg) rotateY(2deg); 
+      }
+      50% { 
+        transform: translateY(0) translateZ(0) rotateX(-2deg) rotateY(-2deg); 
+      }
+      75% { 
+        transform: translateY(10px) translateZ(-20px) rotateX(2deg) rotateY(-2deg); 
+      }
+    }
+    .store-section {
+      animation: float 4s ease-in-out infinite;
+    }
+  </style>
 </head>
 <body>
   <header class="main-header">
     <div class="logo">
-      <img src="image/space-ship.jpg" alt="Star Wars Tie Fighter" style="width: 20%">
+      <img src="images/star-wars-2897280_1280.jpg" alt="Star Wars Tie Fighter" style="width: 20%">
     </div>
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
     <label for="menu-toggle" class="hamburger">
@@ -33,15 +158,19 @@
   </header>
   <section class="content">
     <h2>Star Wars Theory Store</h2>
-    <p>Explore exclusive Star Wars Theory merchandise, including apparel, accessories, and collectibles. Click below to visit the official store!</p>
+    <p>Explore exclusive Star Wars Theory merchandise, including apparel, accessories, and collectibles. Click below to visit the official stores!</p>
 
     <div class="store-section">
-      <img src="https://via.placeholder.com/800x400" alt="Star Wars Theory Merchandise" class="store-image">
-      <a href="https://swtheory.teespring.com/" target="_blank" class="store-button">THEORY MERCH</a>
+      <div class="product-card">
+        <img src="images/star-wars.jpg" alt="Star Wars Theory Merchandise" class="store-image">
+        <a href="https://swtheory.teespring.com/" target="_blank" class="store-button">THEORY MERCH</a>
+      </div>
     </div>
     <div class="store-section">
-      <img src="https://via.placeholder.com/800x400" alt="Star Wars Theory Merchandise" class="store-image">
-      <a href="https://www.theorysabers.com/" target="_blank" class="store-button">THEORY SABERS</a>
+      <div class="product-card">
+        <img src="images/OBI one.jpeg" alt="Star Wars Theory Lightsabers" class="store-image">
+        <a href="https://www.theorysabers.com/" target="_blank" class="store-button">THEORY SABERS</a>
+      </div>
     </div>
   </section>
 
@@ -50,4 +179,3 @@
   </footer>
 </body>
 </html>
-

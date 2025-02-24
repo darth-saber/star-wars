@@ -5,11 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Star Wars Theory - Home</title>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    .parallax-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .parallax-layer {
+      position: absolute;
+      width: 110%;
+      height: 110%;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.1s ease-out;
+    }
+    .parallax-layer:nth-child(1) {
+      background-image: url('images/star-wars-2897280_1280.jpg');
+      transform: translateZ(0);
+    }
+    .parallax-layer:nth-child(2) {
+      background-image: url('images/Sith.webp');
+      transform: translateZ(0.3);
+    }
+    .parallax-layer:nth-child(3) {
+      background-image: url('images/OBI one.jpeg');
+      transform: translateZ(0.5);
+    }
+    .logo img {
+      transition: transform 1s ease-in-out;
+    }
+    .logo img:hover {
+      transform: rotateY(360deg);
+    }
+  </style>
 </head>
 <body>
+  <div class="parallax-background">
+    <div class="parallax-layer" data-depth="0.1"></div>
+    <div class="parallax-layer" data-depth="0.3"></div>
+    <div class="parallax-layer" data-depth="0.5"></div>
+  </div>
   <header class="main-header">
     <div class="logo">
-      <img src="image/space-ship.jpg" alt="Star Wars Tie Fighter" style="width: 20%">
+      <img src="images/star-wars-2897280_1280.jpg" alt="Star Wars Tie Fighter" style="width: 10%">
     </div>
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
     <label for="menu-toggle" class="hamburger">
@@ -39,4 +82,4 @@
     <p>© 2025 Star Wars Theory</p>
   </footer>
 </body>
-</html
+</html>
