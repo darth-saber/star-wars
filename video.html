@@ -33,21 +33,53 @@
   </header>
   <section class="content">
     <h2>Latest Videos</h2>
-    <div class="video-grid">
+    <div class="video-grid" id="videoGrid">
       <div class="video">
-        <h3>The Tragedy of Darth Vader</h3>
+        <h3 class="video-title" data-video-id="VIDEO_ID_1">The Tragedy of Darth Vader</h3>
         <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Star Wars Video" allowfullscreen></iframe>
       </div>
       <div class="video">
-        <h3>Order 66 - Untold Stories</h3>
+        <h3 class="video-title" data-video-id="VIDEO_ID_2">Order 66 - Untold Stories</h3>
         <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Star Wars Video" allowfullscreen></iframe>
       </div>
       <div class="video">
-        <h3>Why Anakin Fell to the Dark Side</h3>
+        <h3 class="video-title" data-video-id="VIDEO_ID_3">Why Anakin Fell to the Dark Side</h3>
         <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Star Wars Video" allowfullscreen></iframe>
       </div>
     </div>
   </section>
+
+  <div id="videoModal" class="modal">
+    <span class="close">&times;</span>
+    <iframe id="modalVideo" src="" title="Star Wars Video" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    const videoTitles = document.querySelectorAll('.video-title');
+    const modal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    const closeModal = document.querySelector('.close');
+
+    videoTitles.forEach(title => {
+      title.addEventListener('click', () => {
+        const videoId = title.getAttribute('data-video-id');
+        modalVideo.src = `https://www.youtube.com/embed/${videoId}`;
+        modal.style.display = 'block';
+      });
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+      modalVideo.src = '';
+    });
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+        modalVideo.src = '';
+      }
+    }
+  </script>
 
   <footer class="main-footer">
     <p>© 2025 Star Wars Theory</p>
